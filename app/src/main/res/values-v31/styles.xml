@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     styles.xml  —  تم‌های اپ برای اندروید 12+
+     مسیر: app/src/main/res/values-v31/styles.xml
+     =========================================================
+     📌 این فایل برای اندروید 12 (API 31) به بالا
+     📌 از SplashScreen API جدید استفاده می‌کنه
+     📌 رنگ Splash، آیکون، و انیمیشن Splash رو تنظیم می‌کنه
+     ========================================================= -->
+<resources>
+
+    <!-- ===== تم اصلی — اندروید 12+ ===== -->
+    <style name="Theme.Vista" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- رنگ اصلی -->
+        <item name="colorPrimary">@color/navy_primary</item>
+        <item name="colorPrimaryDark">@color/navy_dark</item>
+        <item name="colorAccent">@color/gold_primary</item>
+
+        <!-- پس‌زمینه -->
+        <item name="android:windowBackground">@color/bg_main</item>
+
+        <!-- نوار وضعیت (شفاف) -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- نوار ناوبری -->
+        <item name="android:navigationBarColor">@color/bg_main</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- انیمیشن‌های پنجره -->
+        <item name="android:windowAnimationStyle">@style/Vista.WindowAnimation</item>
+
+        <!-- فونت پیش‌فرض -->
+        <item name="android:fontFamily">sans-serif</item>
+
+    </style>
+
+    <!-- ===== تم Splash — اندروید 12+ ===== -->
+    <style name="Theme.Vista.Splash" parent="Theme.SplashScreen">
+
+        <!-- آیکون وسط Splash -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+
+        <!-- پس‌زمینه‌ی Splash -->
+        <item name="windowSplashScreenBackground">@color/splash_bg</item>
+
+        <!-- مدت نمایش (اندروید 12 مدت رو محدود می‌کنه) -->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+
+        <!-- بعد از Splash، تم اصلی اعمال شه -->
+        <item name="postSplashScreenTheme">@style/Theme.Vista</item>
+
+    </style>
+
+    <!-- ===== انیمیشن‌های ورود/خروج ===== -->
+    <style name="Vista.WindowAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+
+</resources>

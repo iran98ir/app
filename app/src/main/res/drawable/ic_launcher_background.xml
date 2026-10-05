@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     ic_launcher_background.xml  —  پس‌زمینه‌ی آیکون اپ
+     مسیر: app/src/main/res/drawable/ic_launcher_background.xml
+     ========================================================= -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- ===== پس‌زمینه‌ی سرمه‌ای ===== -->
+    <path
+        android:fillColor="#0D1B2E"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z" />
+
+    <!-- ===== هاله‌ی طلایی پایین ===== -->
+    <path
+        android:fillColor="#1AC4956A"
+        android:pathData="M0,108 L108,108 L108,54 Q54,90 0,54 Z" />
+
+</vector>

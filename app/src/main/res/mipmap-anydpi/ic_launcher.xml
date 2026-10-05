@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     ic_launcher.xml  —  Fallback برای اندروید 6 و 7
+     مسیر: app/src/main/res/mipmap-anydpi/ic_launcher.xml
+     =========================================================
+     📌 چون اندروید 6 و 7 از Adaptive Icon پشتیبانی نمی‌کنن
+     📌 این فایل از PNG استفاده می‌کنه
+     ========================================================= -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/ic_launcher_png"
+    android:gravity="center" />

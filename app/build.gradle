@@ -22,16 +22,36 @@ android {
         resConfigs "fa", "en"
     }
 
+    // ===== امضا (Keystore) =====
+    signingConfigs {
+        release {
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD
+                keyAlias RELEASE_KEY_ALIAS
+                keyPassword RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
             debuggable true
+            // ===== Debug هم با همون keystore امضا شه =====
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                signingConfig signingConfigs.release
+            }
         }
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable false
+            // ===== Release با keystore امضا شه =====
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
@@ -80,7 +100,7 @@ dependencies {
     // ===== Material Design =====
     implementation 'com.google.android.material:material:1.12.0'
 
-    // ===== WebKit (برای WebView بهتر) =====
+    // ===== WebKit =====
     implementation 'androidx.webkit:webkit:1.11.0'
 
     // ===== Splash Screen API =====

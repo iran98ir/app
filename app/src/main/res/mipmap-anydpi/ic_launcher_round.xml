@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     ic_launcher_round.xml  —  Fallback گرد برای اندروید 6 و 7
+     مسیر: app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+     ========================================================= -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/ic_launcher_png"
+    android:gravity="center" />

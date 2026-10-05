@@ -175,7 +175,7 @@ public class PreloadManager {
 
         // ===== Cache =====
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setAppCacheEnabled(true);
+        // settings.setAppCacheEnabled(true);  // ← حذف شد (در Android جدید وجود نداره)
 
         // ===== Zoom (غیرفعال) =====
         settings.setSupportZoom(false);
@@ -258,4 +258,4 @@ public class PreloadManager {
     public static void reset() {
         clear();
     }
-                              }
+}

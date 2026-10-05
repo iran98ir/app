@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     splash_logo_in.xml  —  انیمیشن ورود لوگو در Splash
+     مسیر: app/src/main/res/anim/splash_logo_in.xml
+     =========================================================
+     📌 ترکیب: fade + scale + slight float
+     ========================================================= -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/decelerate_quint">
+
+    <!-- ===== ورود نرم ===== -->
+    <alpha
+        android:duration="800"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+
+    <!-- ===== بزرگ‌نمایی ملایم ===== -->
+    <scale
+        android:duration="800"
+        android:fromXScale="0.85"
+        android:fromYScale="0.85"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+
+</set>

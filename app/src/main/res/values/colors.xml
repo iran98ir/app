@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     colors.xml  —  رنگ‌های اپ
+     مسیر: app/src/main/res/values/colors.xml
+     ========================================================= -->
+<resources>
+
+    <!-- ===== رنگ اصلی — طلایی ===== -->
+    <color name="gold_primary">#C4956A</color>
+    <color name="gold_light">#D4A84A</color>
+    <color name="gold_dark">#A87B4E</color>
+
+    <!-- ===== سرمه‌ای ===== -->
+    <color name="navy_primary">#1B2A4A</color>
+    <color name="navy_light">#2A3D5C</color>
+    <color name="navy_dark">#0D1B2E</color>
+
+    <!-- ===== پس‌زمینه ===== -->
+    <color name="bg_main">#F5F0EB</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_surface_alt">#FAF7F2</color>
+
+    <!-- ===== متن ===== -->
+    <color name="text_primary">#0D1B2E</color>
+    <color name="text_secondary">#5A6478</color>
+    <color name="text_muted">#8A92A3</color>
+    <color name="text_inverse">#FFFFFF</color>
+
+    <!-- ===== خطوط ===== -->
+    <color name="border_soft">#EAEAEA</color>
+    <color name="border_strong">#D4D4D8</color>
+    <color name="border_gold">#C4956A</color>
+
+    <!-- ===== بازخورد ===== -->
+    <color name="success">#2D7A5F</color>
+    <color name="error">#B8433A</color>
+    <color name="warning">#C77D2E</color>
+
+    <!-- ===== پس‌زمینه‌ی Splash ===== -->
+    <color name="splash_bg">#0D1B2E</color>
+    <color name="splash_bg_light">#1B2A4A</color>
+
+    <!-- ===== آیکون اپ ===== -->
+    <color name="ic_launcher_background">#0D1B2E</color>
+    <color name="ic_launcher_foreground">#C4956A</color>
+
+    <!-- ===== شفاف ===== -->
+    <color name="transparent">#00000000</color>
+
+</resources>

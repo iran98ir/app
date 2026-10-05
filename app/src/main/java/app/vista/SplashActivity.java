@@ -6,7 +6,7 @@
    📌 لود پس‌زمینه‌ی سایت در همین حین
    📌 وقتی سایت لود شد → می‌ره MainActivity
    📌 حداقل نمایش: 1.5 ثانیه
-   📌 حداکثر انتظار: 8 ثانیه (بعدش می‌ره MainActivity)
+   📌 حداکثر انتظار: 8 ثانیه
    ========================================================= */
 
 package app.vista;
@@ -14,7 +14,6 @@ package app.vista;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -28,15 +27,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.splashscreen.SplashScreen;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SplashActivity extends AppCompatActivity {
 
     // ===== زمان‌ها (میلی‌ثانیه) =====
-    private static final long MIN_DISPLAY_TIME = 1500L; // حداقل نمایش Splash
-    private static final long MAX_WAIT_TIME    = 8000L; // حداکثر انتظار برای لود سایت
+    private static final long MIN_DISPLAY_TIME = 1500L;
+    private static final long MAX_WAIT_TIME    = 8000L;
 
     // ===== ویوها =====
     private LinearLayout splashContent;
@@ -55,9 +53,6 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // ===== نصب Splash Screen API برای اندروید 12+ =====
-        SplashScreen.installSplashScreen(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
@@ -102,11 +97,6 @@ public class SplashActivity extends AppCompatActivity {
 
     /**
      * اجرای انیمیشن ورود نرم
-     * - لوگو با scale + fade
-     * - نام اپ با fade + slide up
-     * - خط جداکننده با scaleX
-     * - متن خوش‌آمد با fade
-     * - لودینگ با fade
      */
     private void playEntranceAnimation() {
 
@@ -175,21 +165,16 @@ public class SplashActivity extends AppCompatActivity {
 
     /**
      * شروع لود پس‌زمینه‌ی سایت
-     * یه WebView مخفی می‌سازیم و سایت رو لود می‌کنیم
-     * وقتی onPageFinished صدا زده شد → می‌ریم MainActivity
      */
     private void startBackgroundPreload() {
-        // ===== WebView یه کلاس جدا می‌سازیم برای preload =====
         PreloadManager.preload(this, new PreloadManager.PreloadCallback() {
             @Override
             public void onPageLoaded() {
-                // ===== اگه هنوز navigate نکردیم =====
                 runOnUiThread(() -> navigateToMain(true));
             }
 
             @Override
             public void onPageFailed() {
-                // ===== خطا → بازم بریم MainActivity، اون‌جا خطا نمایش داده می‌شه =====
                 runOnUiThread(() -> navigateToMain(false));
             }
         });
@@ -197,24 +182,18 @@ public class SplashActivity extends AppCompatActivity {
 
     /**
      * رفتن به MainActivity با انیمیشن نرم
-     *
-     * @param pageLoaded اگه سایت لود شده بود true، اگه نه false
      */
     private void navigateToMain(boolean pageLoaded) {
-        // ===== فقط یک بار اجازه navigate =====
         if (!hasNavigated.compareAndSet(false, true)) {
             return;
         }
 
-        // ===== حذف تایمرها =====
         handler.removeCallbacksAndMessages(null);
 
-        // ===== چک حداقل زمان نمایش =====
         long elapsed = System.currentTimeMillis() - splashStartTime;
         long remaining = MIN_DISPLAY_TIME - elapsed;
 
         if (remaining > 0) {
-            // ===== صبر کن تا زمان حداقل برسه =====
             handler.postDelayed(() -> performNavigation(pageLoaded), remaining);
         } else {
             performNavigation(pageLoaded);
@@ -225,7 +204,6 @@ public class SplashActivity extends AppCompatActivity {
      * اجرای واقعی انتقال
      */
     private void performNavigation(boolean pageLoaded) {
-        // ===== انیمیشن خروج نرم =====
         splashContent.animate()
             .alpha(0f)
             .scaleX(1.05f)
@@ -245,7 +223,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // ===== توی Splash، back button کاری نکنه =====
-        // (کاربر نمی‌تونه برگرده عقب)
     }
 
     @Override
@@ -253,4 +230,4 @@ public class SplashActivity extends AppCompatActivity {
         super.onDestroy();
         handler.removeCallbacksAndMessages(null);
     }
-}
+           }

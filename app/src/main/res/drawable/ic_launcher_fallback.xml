@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     ic_launcher_fallback.xml  —  آیکون fallback برای اندروید 6 و 7
+     مسیر: app/src/main/res/drawable/ic_launcher_fallback.xml
+     =========================================================
+     📌 این آیکون برای اندروید 6 و 7 استفاده می‌شه
+     📌 چون اون‌ها Adaptive Icon رو پشتیبانی نمی‌کنن
+     ========================================================= -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ===== پس‌زمینه‌ی سرمه‌ای ===== -->
+    <item android:drawable="@drawable/ic_launcher_background" />
+
+    <!-- ===== لوگو وسط ===== -->
+    <item
+        android:drawable="@drawable/ic_launcher_foreground"
+        android:gravity="center" />
+
+</layer-list>

@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- =========================================================
-     network_security_config.xml  —  تنظیمات امنیت شبکه
-     مسیر: app/src/main/res/xml/network_security_config.xml
-     =========================================================
-     📌 فقط HTTPS مجاز
-     📌 فقط دامنه‌ی rosha-24.ir
-     📌 هیچ HTTP خام
-     ========================================================= -->
 <network-security-config>
 
-    <!-- ===== قاعده‌ی پیش‌فرض: فقط HTTPS ===== -->
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
     </base-config>
 
-    <!-- ===== دامنه‌ی سایت روشا ===== -->
     <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="true">rosha-24.ir</domain>
         <domain includeSubdomains="true">www.rosha-24.ir</domain>
-        <pin-set expiration="2027-12-31">
-            <!--
-                📌 Certificate Pinning اختیاری
-                📌 اگه فعال کنی، امنیت بالا می‌ره ولی اگه cert سایت عوض شه،
-                   اپ کار نمی‌کنه تا آپدیت بدی
-                📌 فعلاً غیرفعال بذار
-            -->
-        </pin-set>
     </domain-config>
 
-    <!-- ===== دامنه‌های تبلیغات و CDN ===== -->
     <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="true">cdn.jsdelivr.net</domain>
     </domain-config>

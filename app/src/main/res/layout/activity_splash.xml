@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     activity_splash.xml  —  صفحه‌ی Splash
+     مسیر: app/src/main/res/layout/activity_splash.xml
+     ========================================================= -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    android:fitsSystemWindows="true">
+
+    <!-- ===== محتوای وسط ===== -->
+    <LinearLayout
+        android:id="@+id/splashContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ===== لوگو ===== -->
+        <ImageView
+            android:id="@+id/splashLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/splash_logo"
+            android:scaleType="fitCenter" />
+
+        <!-- ===== نام اپ ===== -->
+        <TextView
+            android:id="@+id/splashAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_name"
+            android:textColor="@color/gold_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- ===== خط جداکننده‌ی طلایی ===== -->
+        <View
+            android:id="@+id/splashDivider"
+            android:layout_width="48dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gold_primary"
+            android:alpha="0.6" />
+
+        <!-- ===== متن خوش‌آمد ===== -->
+        <TextView
+            android:id="@+id/splashWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/splash_welcome"
+            android:textColor="@color/text_inverse"
+            android:textSize="14sp"
+            android:alpha="0.75"
+            android:fontFamily="sans-serif" />
+
+    </LinearLayout>
+
+    <!-- ===== لودینگ پایین ===== -->
+    <LinearLayout
+        android:id="@+id/splashLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ===== ProgressBar دایره‌ای ===== -->
+        <ProgressBar
+            android:id="@+id/splashProgress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/gold_primary" />
+
+        <!-- ===== متن لودینگ ===== -->
+        <TextView
+            android:id="@+id/splashLoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/splash_loading"
+            android:textColor="@color/text_inverse"
+            android:textSize="13sp"
+            android:alpha="0.6"
+            android:fontFamily="sans-serif" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

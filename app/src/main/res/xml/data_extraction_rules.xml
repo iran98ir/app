@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     data_extraction_rules.xml  —  قوانین Backup (اندروید 12+)
+     مسیر: app/src/main/res/xml/data_extraction_rules.xml
+     =========================================================
+     📌 مدیریت Backup و Transfer بین گوشی‌ها
+     📌 کاربر اطلاعات حساس نداره که بخوایم بکاپ بگیریم
+     ========================================================= -->
+<data-extraction-rules>
+
+    <!-- ===== بکاپ ابری (Google Backup) ===== -->
+    <cloud-backup>
+        <!-- ===== هیچ داده‌ای بکاپ گرفته نشه ===== -->
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+        <exclude domain="file" />
+    </cloud-backup>
+
+    <!-- ===== انتقال بین گوشی‌ها (Device-to-Device) ===== -->
+    <device-transfer>
+        <!-- ===== هیچ داده‌ای منتقل نشه ===== -->
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+        <exclude domain="file" />
+    </device-transfer>
+
+</data-extraction-rules>

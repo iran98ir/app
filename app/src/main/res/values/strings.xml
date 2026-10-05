@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     strings.xml  —  متن‌های اپ
+     مسیر: app/src/main/res/values/strings.xml
+     ========================================================= -->
+<resources>
+
+    <!-- ===== نام اپ ===== -->
+    <string name="app_name">مشاوره آنلاین</string>
+
+    <!-- ===== سایت ===== -->
+    <string name="base_url" translatable="false">https://rosha-24.ir/app/app1/</string>
+    <string name="allowed_domain" translatable="false">rosha-24.ir</string>
+
+    <!-- ===== Splash ===== -->
+    <string name="splash_loading">در حال آماده‌سازی…</string>
+    <string name="splash_welcome">به مشاوره آنلاین خوش آمدید</string>
+
+    <!-- ===== خطاها ===== -->
+    <string name="error_no_internet">اتصال اینترنت برقرار نیست</string>
+    <string name="error_no_internet_desc">لطفاً اتصال خود را بررسی کنید و دوباره تلاش کنید</string>
+    <string name="error_retry">تلاش مجدد</string>
+    <string name="error_load_failed">مشکلی در بارگذاری پیش آمد</string>
+    <string name="error_load_failed_desc">لطفاً چند لحظه دیگر دوباره تلاش کنید</string>
+
+    <!-- ===== خروج ===== -->
+    <string name="exit_title">خروج از اپلیکیشن</string>
+    <string name="exit_message">آیا می‌خواهید از اپلیکیشن خارج شوید؟</string>
+    <string name="exit_yes">بله، خروج</string>
+    <string name="exit_no">انصراف</string>
+
+    <!-- ===== دانلود ===== -->
+    <string name="download_started">در حال دانلود…</string>
+    <string name="download_complete">دانلود کامل شد</string>
+    <string name="download_failed">دانلود ناموفق بود</string>
+
+    <!-- ===== دسترسی ===== -->
+    <string name="permission_download_title">اجازه‌ی ذخیره‌سازی</string>
+    <string name="permission_download_desc">برای دانلود فایل‌ها به این دسترسی نیاز داریم</string>
+    <string name="permission_denied">دسترسی رد شد</string>
+
+    <!-- ===== عمومی ===== -->
+    <string name="ok">باشه</string>
+    <string name="cancel">انصراف</string>
+    <string name="close">بستن</string>
+
+</resources>

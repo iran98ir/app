@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     splash_background.xml  —  پس‌زمینه‌ی صفحه‌ی Splash
+     مسیر: app/src/main/res/drawable/splash_background.xml
+     ========================================================= -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ===== گرادیانت سرمه‌ای تیره ===== -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="@color/navy_dark"
+                android:centerColor="@color/navy_primary"
+                android:endColor="@color/navy_dark"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- ===== درخشش طلایی مرکزی ===== -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="500dp"
+                android:startColor="#1AC4956A"
+                android:endColor="@color/transparent" />
+            <size
+                android:width="800dp"
+                android:height="800dp" />
+        </shape>
+    </item>
+
+</layer-list>

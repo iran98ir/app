@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
         // ===== Cache =====
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setAppCacheEnabled(true);
+        // settings.setAppCacheEnabled(true);  // ← حذف شد (در Android جدید وجود نداره)
 
         // ===== Zoom (غیرفعال) =====
         settings.setSupportZoom(false);
@@ -449,11 +449,6 @@ public class MainActivity extends AppCompatActivity {
         if (url == null || url.isEmpty()) return false;
 
         String lowerUrl = url.toLowerCase(Locale.ROOT);
-
-        // ===== لینک‌های خارجی (مرورگر) =====
-        // - لینک‌های tel:, mailto:, whatsapp:, ...
-        // - لینک‌های خارج از دامنه
-        // - لینک‌های intent:
 
         // ===== ۱. tel =====
         if (lowerUrl.startsWith(TEL_PREFIX)) {
@@ -700,4 +695,4 @@ public class MainActivity extends AppCompatActivity {
 
         super.onDestroy();
     }
-    }
+                   }

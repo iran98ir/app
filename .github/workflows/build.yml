@@ -1,6 +1,10 @@
 # =========================================================
-# build.yml  —  GitHub Actions برای ساخت APK
+# build.yml  —  GitHub Actions برای ساخت APK امضاشده
 # مسیر: .github/workflows/build.yml
+# =========================================================
+# 📌 Debug و Release هر دو امضا میشن
+# 📌 Keystore خودکار ساخته میشه (بدون نیاز به Secrets)
+# 📌 APK نهایی امضاشده → بدون هشدار نصب میشه
 # =========================================================
 
 name: Build APK
@@ -18,7 +22,7 @@ on:
 
 jobs:
   build:
-    name: Build Debug APK
+    name: Build Signed APK
     runs-on: ubuntu-latest
 
     steps:
@@ -55,26 +59,45 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # ===== ۶. Build APK (Debug) =====
+      # ===== ۶. ساخت Keystore خودکار =====
+      - name: Generate Keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore release.keystore \
+            -alias moshaver \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass Moshaver@2026 \
+            -keypass Moshaver@2026 \
+            -dname "CN=Moshaver Hamrah, OU=App, O=Vista, L=Tehran, S=Tehran, C=IR"
+
+      # ===== ۷. تنظیم امضا در gradle.properties =====
+      - name: Setup signing config
+        run: |
+          echo "RELEASE_STORE_FILE=../release.keystore" >> gradle.properties
+          echo "RELEASE_STORE_PASSWORD=Moshaver@2026" >> gradle.properties
+          echo "RELEASE_KEY_ALIAS=moshaver" >> gradle.properties
+          echo "RELEASE_KEY_PASSWORD=Moshaver@2026" >> gradle.properties
+
+      # ===== ۸. Build APK (Debug) =====
       - name: Build Debug APK
         run: ./gradlew assembleDebug --stacktrace
 
-      # ===== ۷. Build APK (Release - بدون امضا) =====
-      - name: Build Release APK (unsigned)
+      # ===== ۹. Build APK (Release) =====
+      - name: Build Release APK
         run: ./gradlew assembleRelease --stacktrace
 
-      # ===== ۸. آپلود APK Debug =====
+      # ===== ۱۰. آپلود APK Debug =====
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: MoshaverHamrah-Debug
+          path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: warn
 
-      # ===== ۹. آپلود APK Release =====
+      # ===== ۱۱. آپلود APK Release =====
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-unsigned
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          name: MoshaverHamrah-Release
+          path: app/build/outputs/apk/release/*.apk
           if-no-files-found: warn

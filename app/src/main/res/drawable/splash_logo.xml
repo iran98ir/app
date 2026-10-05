@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     splash_logo.xml  —  لوگوی صفحه‌ی Splash
+     مسیر: app/src/main/res/drawable/splash_logo.xml
+     =========================================================
+     📌 طراحی: حرف V طلایی + قاب سرمه‌ای
+     📌 نماد «مشاوره»
+     ========================================================= -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- ===== دایره‌ی پس‌زمینه سرمه‌ای ===== -->
+    <path
+        android:fillColor="#1B2A4A"
+        android:pathData="M60,4
+            a56,56 0 1,0 0,112
+            a56,56 0 1,0 0,-112
+            z" />
+
+    <!-- ===== حلقه‌ی طلایی بیرونی ===== -->
+    <path
+        android:strokeColor="#C4956A"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M60,8
+            a52,52 0 1,0 0,104
+            a52,52 0 1,0 0,-104
+            z" />
+
+    <!-- ===== حرف V طلایی ===== -->
+    <path
+        android:fillColor="#C4956A"
+        android:pathData="M32,30 L60,92 L88,30 L78,30 L60,76 L42,30 Z" />
+
+    <!-- ===== خط زیر V ===== -->
+    <path
+        android:strokeColor="#C4956A"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M42,96 L78,96" />
+
+    <!-- ===== نقطه‌ی طلایی وسط بالای V (نماد مشاوره) ===== -->
+    <path
+        android:fillColor="#C4956A"
+        android:pathData="M60,18
+            a4,4 0 1,0 0,8
+            a4,4 0 1,0 0,-8
+            z" />
+
+</vector>

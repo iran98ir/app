@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     colors.xml  —  رنگ‌های اپ در حالت شب
+     مسیر: app/src/main/res/values-night/colors.xml
+     =========================================================
+     📌 فقط رنگ‌هایی که توی حالت شب فرق می‌کنن
+     📌 بقیه از values/colors.xml میان
+     ========================================================= -->
+<resources>
+
+    <!-- ===== پس‌زمینه ===== -->
+    <color name="bg_main">#0D1B2E</color>
+    <color name="bg_surface">#1B2A4A</color>
+    <color name="bg_surface_alt">#142438</color>
+
+    <!-- ===== متن ===== -->
+    <color name="text_primary">#F5F0EB</color>
+    <color name="text_secondary">#C8D0DC</color>
+    <color name="text_muted">#8A92A3</color>
+    <color name="text_inverse">#0D1B2E</color>
+
+    <!-- ===== خطوط ===== -->
+    <color name="border_soft">#2A3D5C</color>
+    <color name="border_strong">#3A4D6C</color>
+
+    <!-- ===== Splash ===== -->
+    <color name="splash_bg">#0D1B2E</color>
+    <color name="splash_bg_light">#1B2A4A</color>
+
+</resources>

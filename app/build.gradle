@@ -60,6 +60,15 @@ android {
             ]
         }
     }
+
+    // ===== اسم فایل خروجی APK =====
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def buildType = variant.buildType.name
+            def version = variant.versionName
+            outputFileName = "MoshaverHamrah-${version}-${buildType}.apk"
+        }
+    }
 }
 
 dependencies {

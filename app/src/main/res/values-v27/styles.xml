@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================
+     styles.xml  —  تم‌های اپ برای اندروید 8.1+
+     مسیر: app/src/main/res/values-v27/styles.xml
+     =========================================================
+     📌 این فایل برای اندروید 8.1 (API 27) به بالا
+     📌 پشتیبانی از Light Navigation Bar
+     📌 پشتیبانی از آیکون‌های تم روشن/تیره
+     ========================================================= -->
+<resources>
+
+    <!-- ===== تم اصلی — اندروید 8.1+ ===== -->
+    <style name="Theme.Vista" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- رنگ اصلی -->
+        <item name="colorPrimary">@color/navy_primary</item>
+        <item name="colorPrimaryDark">@color/navy_dark</item>
+        <item name="colorAccent">@color/gold_primary</item>
+
+        <!-- پس‌زمینه -->
+        <item name="android:windowBackground">@color/bg_main</item>
+
+        <!-- نوار وضعیت -->
+        <item name="android:statusBarColor">@color/bg_main</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- نوار ناوبری (Light Navigation Bar - از API 27) -->
+        <item name="android:navigationBarColor">@color/bg_main</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- انیمیشن‌های پنجره -->
+        <item name="android:windowAnimationStyle">@style/Vista.WindowAnimation</item>
+
+        <!-- فونت پیش‌فرض -->
+        <item name="android:fontFamily">sans-serif</item>
+
+    </style>
+
+    <!-- ===== تم Splash — اندروید 8.1+ ===== -->
+    <style name="Theme.Vista.Splash" parent="Theme.Vista">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/splash_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <!-- ===== انیمیشن‌های ورود/خروج ===== -->
+    <style name="Vista.WindowAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+
+</resources>

@@ -7,34 +7,21 @@
 
     <!-- ===== تم اصلی ===== -->
     <style name="Theme.Vista" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-
-        <!-- رنگ اصلی -->
         <item name="colorPrimary">@color/navy_primary</item>
         <item name="colorPrimaryDark">@color/navy_dark</item>
         <item name="colorAccent">@color/gold_primary</item>
-
-        <!-- پس‌زمینه -->
         <item name="android:windowBackground">@color/bg_main</item>
-
-        <!-- نوار وضعیت (شفاف) -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
-
-        <!-- نوار ناوبری -->
         <item name="android:navigationBarColor">@color/bg_main</item>
-        <item name="android:windowLightNavigationBar">true</item>
-
-        <!-- انیمیشن‌های پنجره -->
         <item name="android:windowAnimationStyle">@style/Vista.WindowAnimation</item>
-
-        <!-- فونت پیش‌فرض -->
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <!-- ===== تم Splash ===== -->
     <style name="Theme.Vista.Splash" parent="Theme.Vista">
         <item name="android:windowBackground">@drawable/splash_background</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/splash_bg</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:navigationBarColor">@color/splash_bg</item>
         <item name="android:windowLightNavigationBar">false</item>

@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+
+    <!-- ===== پس‌زمینه دایره‌ای سرمه‌ای ===== -->
+    <path android:pathData="M54,4 A50,50 0 1,1 54,104 A50,50 0 1,1 54,4 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="4" android:startY="4"
+                android:endX="104" android:endY="104">
+                <item android:offset="0" android:color="#1A0F2E"/>
+                <item android:offset="0.5" android:color="#2D1B4E"/>
+                <item android:offset="1" android:color="#0D0A1F"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== حلقه طلایی دور (افکت درخشان) ===== -->
+    <path android:pathData="M54,6 A48,48 0 1,1 54,102 A48,48 0 1,1 54,6 Z"
+        android:strokeColor="#D4A84A"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="0.6"
+        android:fillColor="#00000000"/>
+
+    <!-- ===== درخشش طلایی مرکزی ===== -->
+    <path android:pathData="M54,20 A34,34 0 1,1 54,88 A34,34 0 1,1 54,20 Z"
+        android:fillAlpha="0.18">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="54" android:centerY="54"
+                android:gradientRadius="40">
+                <item android:offset="0" android:color="#FFD4A84A"/>
+                <item android:offset="1" android:color="#00D4A84A"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== حباب گفتگوی بزرگ (کارشناس) ===== -->
     <path
-        android:fillColor="#D4AF37"
-        android:pathData="M54,0 A54,54 0 1,1 54,108 A54,54 0 1,1 54,0 Z"/>
+        android:pathData="M28,38 Q28,30 36,30 L68,30 Q76,30 76,38 L76,58 Q76,66 68,66 L50,66 L40,76 L42,66 L36,66 Q28,66 28,58 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="28" android:startY="30"
+                android:endX="76" android:endY="76">
+                <item android:offset="0" android:color="#FFE8C77A"/>
+                <item android:offset="0.5" android:color="#D4A84A"/>
+                <item android:offset="1" android:color="#A87B2E"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== خط درخشان ===== -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,30 L74,54 L62,54 L62,78 L46,78 L46,54 L34,54 Z"/>
+        android:pathData="M32,36 Q32,33 36,33 L68,33 Q72,33 72,36"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="0.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+
+    <!-- ===== سه نقطه ===== -->
+    <path android:pathData="M44,48 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"
+        android:fillColor="#1A0F2E"/>
+    <path android:pathData="M52,48 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"
+        android:fillColor="#1A0F2E"/>
+    <path android:pathData="M60,48 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"
+        android:fillColor="#1A0F2E"/>
+
+    <!-- ===== حباب گفتگوی کوچک (کاربر) ===== -->
+    <path
+        android:pathData="M56,58 Q56,52 62,52 L82,52 Q88,52 88,58 L88,72 Q88,78 82,78 L74,78 L70,86 L72,78 L62,78 Q56,78 56,72 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="56" android:startY="52"
+                android:endX="88" android:endY="86">
+                <item android:offset="0" android:color="#5B7BB8"/>
+                <item android:offset="1" android:color="#2D4A7A"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== خط درخشان ===== -->
+    <path
+        android:pathData="M60,56 Q60,54 64,54 L80,54 Q84,54 84,56"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeAlpha="0.4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+
+    <!-- ===== قلب کوچک ===== -->
+    <path
+        android:pathData="M72,62 C70,60 66,60 66,63 C66,66 72,70 72,70 C72,70 78,66 78,63 C78,60 74,60 72,62 Z"
+        android:fillColor="#FFE8C77A"/>
+
 </vector>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     splash_background.xml  —  پس‌زمینه‌ی صفحه‌ی Splash
+     splash_background.xml  —  پس‌زمینه‌ی Splash (وامدار)
      مسیر: app/src/main/res/drawable/splash_background.xml
+     نسخه: 7.11.02
+     =========================================================
+     📌 گرادیانت سرمه‌ای تیره — مثل مشاور همراه اولیه
      ========================================================= -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -10,14 +13,14 @@
         <shape android:shape="rectangle">
             <gradient
                 android:angle="135"
-                android:startColor="@color/navy_dark"
-                android:centerColor="@color/navy_primary"
-                android:endColor="@color/navy_dark"
+                android:startColor="#0D1B2E"
+                android:centerColor="#1B2A4A"
+                android:endColor="#0D1B2E"
                 android:type="linear" />
         </shape>
     </item>
 
-    <!-- ===== درخشش طلایی مرکزی ===== -->
+    <!-- ===== درخشش طلایی مرکزی (هاله‌ی نرم) ===== -->
     <item>
         <shape android:shape="oval">
             <gradient

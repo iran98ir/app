@@ -1,14 +1,13 @@
 /* =========================================================
-   MainActivity.java  —  صفحه‌ی اصلی (WebView) — Vista2
+   MainActivity.java  —  صفحه‌ی اصلی (WebView) — MU✂️MU
    مسیر: app/src/main/java/app/vista/MainActivity.java
-   نسخه: 1.3.07
+   نسخه: 3.4.07
    ========================================================= */
 
 package app.vista;
 
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -24,7 +23,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
-import android.webkit.DownloadListener;
 import android.webkit.GeolocationPermissions;
 import android.webkit.PermissionRequest;
 import android.webkit.URLUtil;
@@ -50,25 +48,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.Locale;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     // ====================================================
-    // 🔴 URL سایت — عوض شده برای Vista2
+    // 🔴 URL سایت
     // ====================================================
     private static final String BASE_URL = "https://rosha-24.ir/app/app2/";
     private static final String BASE_DOMAIN = "rosha-24.ir";
-
-    private static final String TEL_PREFIX = "tel:";
-    private static final String MAIL_PREFIX = "mailto:";
-    private static final String WHATSAPP_PREFIX = "whatsapp:";
-    private static final String TG_PREFIX = "tg:";
-    private static final String INSTAGRAM_PREFIX = "instagram:";
-    private static final String INTENT_PREFIX = "intent:";
-    private static final String MARKET_PREFIX = "market:";
 
     private WebView webView;
     private ProgressBar progressBar;
@@ -163,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupWebView() {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setJavaScriptCanOpenWindowsAutomatically(false);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDomStorageEnabled(true);
         settings.setDatabaseEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -173,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setTextZoom(100);
-        settings.setUserAgentString(settings.getUserAgentString() + " MuMuApp/1.3.07");
+        settings.setUserAgentString(settings.getUserAgentString() + " MuMuApp/3.4.07");
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
         settings.setAllowFileAccessFromFileURLs(false);
@@ -230,11 +218,13 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return handleUrl(request.getUrl().toString());
+                // ===== همه‌ی لینک‌ها داخل WebView باز شن =====
+                return false;
             }
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return handleUrl(url);
+                // ===== همه‌ی لینک‌ها داخل WebView باز شن =====
+                return false;
             }
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
@@ -302,53 +292,6 @@ public class MainActivity extends AppCompatActivity {
             setupWebView();
         } catch (Exception e) {
             loadUrl(BASE_URL);
-        }
-    }
-
-    private boolean handleUrl(String url) {
-        if (url == null || url.isEmpty()) return false;
-        String lowerUrl = url.toLowerCase(Locale.ROOT);
-        if (lowerUrl.startsWith(TEL_PREFIX) || lowerUrl.startsWith(MAIL_PREFIX) ||
-            lowerUrl.startsWith(WHATSAPP_PREFIX) || lowerUrl.contains("wa.me/") ||
-            lowerUrl.startsWith(TG_PREFIX) || lowerUrl.contains("t.me/") ||
-            lowerUrl.startsWith(INSTAGRAM_PREFIX) || lowerUrl.contains("instagram.com/") ||
-            lowerUrl.startsWith(INTENT_PREFIX) || lowerUrl.startsWith(MARKET_PREFIX)) {
-            openExternal(url);
-            return true;
-        }
-        if (lowerUrl.startsWith("http://") || lowerUrl.startsWith("https://")) {
-            if (isInternalUrl(url)) {
-                return false;
-            } else {
-                openExternal(url);
-                return true;
-            }
-        }
-        openExternal(url);
-        return true;
-    }
-
-    private boolean isInternalUrl(String url) {
-        try {
-            Uri uri = Uri.parse(url);
-            String host = uri.getHost();
-            if (host == null) return false;
-            host = host.toLowerCase(Locale.ROOT);
-            return host.equals(BASE_DOMAIN) || host.endsWith("." + BASE_DOMAIN);
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    private void openExternal(String url) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "اپلیکیشنی برای باز کردن این لینک پیدا نشد", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Log.e(TAG, "openExternal error: " + e.getMessage());
         }
     }
 
@@ -459,4 +402,4 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-                                            }
+    }

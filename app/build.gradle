@@ -84,7 +84,7 @@ android {
         variant.outputs.all {
             def buildType = variant.buildType.name
             def version = variant.versionName
-            outputFileName = "MuMu-${version}-${buildType}.apk"
+            outputFileName = "Mu✂️Mu-${version}-${buildType}.apk"
         }
     }
 }

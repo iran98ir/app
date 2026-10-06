@@ -2,10 +2,11 @@
 <!-- =========================================================
      ic_launcher_foreground.xml  —  پیش‌زمینه‌ی آیکون (کاردار)
      مسیر: app/src/main/res/drawable/ic_launcher_foreground.xml
-     نسخه: 3.07.11
+     نسخه: 3.07.12
      =========================================================
-     📌 نماد: مردی که بیل می‌زنه (سبک تابلو راهنمایی و رانندگی)
-     📌 رنگ: مشکی روی زرد، مثل تابلوی "کارگران مشغول کارند"
+     📌 نماد: فقط بیل (بدون آدم)
+     📌 سبک تابلو راهنمایی و رانندگی
+     📌 بیل مایل (حس کار و حرکت)
      ========================================================= -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
@@ -15,145 +16,68 @@
     android:viewportHeight="108">
 
     <group
-        android:translateX="16"
-        android:translateY="16">
+        android:translateX="18"
+        android:translateY="18">
 
-        <!-- ===== سر کارگر (دایره مشکی) ===== -->
-        <path android:pathData="M32,14
-            a7,7 0 1,0 0,14
-            a7,7 0 1,0 0,-14
-            z">
+        <!-- ===== دسته‌ی بیل (خط مایل ضخیم، از بالا-راست به پایین-چپ) ===== -->
+        <path android:pathData="M72,8 L32,68"
+            android:strokeWidth="7"
+            android:strokeLineCap="round"
+            android:fillColor="#00000000">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="72" android:startY="8"
+                    android:endX="32" android:endY="68">
+                    <item android:offset="0" android:color="#1A2B3C"/>
+                    <item android:offset="1" android:color="#000000"/>
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- ===== هایلایت روی دسته (لبه‌ی روشن، شیشه‌ای) ===== -->
+        <path android:pathData="M70,10 L33,65"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.25"
+            android:fillColor="#00000000"/>
+
+        <!-- ===== گره‌ی اتصال (وسط دسته، علامت اتصال تیغه) ===== -->
+        <path android:pathData="M46,46
+            a3,3 0 1,0 0,6
+            a3,3 0 1,0 0,-6
+            z"
+            android:fillColor="#1A2B3C"/>
+
+        <!-- ===== تیغه‌ی بیل (ذوزنقه در پایین-چپ) ===== -->
+        <path android:pathData="M18,66 L42,66 L38,82 L14,82 Z">
             <aapt:attr name="android:fillColor">
                 <gradient
                     android:type="linear"
-                    android:startX="25" android:startY="14"
-                    android:endX="39" android:endY="28">
+                    android:startX="14" android:startY="66"
+                    android:endX="42" android:endY="82">
                     <item android:offset="0" android:color="#1A2B3C"/>
                     <item android:offset="1" android:color="#000000"/>
                 </gradient>
             </aapt:attr>
         </path>
 
-        <!-- ===== بدنه‌ی کارگر (مثلث/چهارضلعی خمیده) ===== -->
-        <path android:pathData="M24,32 L40,32 L44,58 L20,58 Z">
-            <aapt:attr name="android:fillColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="20" android:startY="32"
-                    android:endX="44" android:endY="58">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== دست‌ها (خط ضخیم) ===== -->
-        <path android:pathData="M22,40 L52,34"
-            android:strokeWidth="5"
+        <!-- ===== هایلایت روی تیغه (لبه‌ی بالا، شیشه‌ای) ===== -->
+        <path android:pathData="M20,68 L40,68"
+            android:strokeWidth="1.5"
             android:strokeLineCap="round"
-            android:fillColor="#00000000">
-            <aapt:attr name="android:strokeColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="22" android:startY="40"
-                    android:endX="52" android:endY="34">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.3"
+            android:fillColor="#00000000"/>
 
-        <!-- ===== پای چپ ===== -->
-        <path android:pathData="M26,58 L22,74"
-            android:strokeWidth="5"
+        <!-- ===== خط زیر تیغه (حس عمق) ===== -->
+        <path android:pathData="M16,82 L40,82"
+            android:strokeWidth="2"
             android:strokeLineCap="round"
-            android:fillColor="#00000000">
-            <aapt:attr name="android:strokeColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="26" android:startY="58"
-                    android:endX="22" android:endY="74">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== پای راست ===== -->
-        <path android:pathData="M38,58 L42,74"
-            android:strokeWidth="5"
-            android:strokeLineCap="round"
-            android:fillColor="#00000000">
-            <aapt:attr name="android:strokeColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="38" android:startY="58"
-                    android:endX="42" android:endY="74">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== دسته‌ی بیل (خط مایل بلند) ===== -->
-        <path android:pathData="M50,32 L26,74"
-            android:strokeWidth="3.5"
-            android:strokeLineCap="round"
-            android:fillColor="#00000000">
-            <aapt:attr name="android:strokeColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="50" android:startY="32"
-                    android:endX="26" android:endY="74">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== تیغه‌ی بیل (در پایین) ===== -->
-        <path android:pathData="M20,72 L34,72 L32,80 L22,80 Z">
-            <aapt:attr name="android:fillColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="20" android:startY="72"
-                    android:endX="34" android:endY="80">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== تپه‌ی خاک (پایین راست) ===== -->
-        <path android:pathData="M58,78
-            Q64,68 72,78 Z">
-            <aapt:attr name="android:fillColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="58" android:startY="78"
-                    android:endX="72" android:endY="78">
-                    <item android:offset="0" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#000000"/>
-                </gradient>
-            </aapt:attr>
-        </path>
-
-        <!-- ===== خط زمین (پایین) ===== -->
-        <path android:pathData="M14,82 L86,82"
-            android:strokeWidth="2.5"
-            android:strokeLineCap="round"
-            android:fillColor="#00000000">
-            <aapt:attr name="android:strokeColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="14" android:startY="82"
-                    android:endX="86" android:endY="82">
-                    <item android:offset="0" android:color="#001A2B3C"/>
-                    <item android:offset="0.5" android:color="#1A2B3C"/>
-                    <item android:offset="1" android:color="#001A2B3C"/>
-                </gradient>
-            </aapt:attr>
-        </path>
+            android:strokeColor="#1A2B3C"
+            android:strokeAlpha="0.6"
+            android:fillColor="#00000000"/>
 
     </group>
 

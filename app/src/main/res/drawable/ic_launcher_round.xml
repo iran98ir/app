@@ -56,32 +56,15 @@
         </aapt:attr>
     </path>
 
-    <!-- ===== حلقه‌ی داخلی براق سفید-صورتی ===== -->
-    <path android:pathData="M60,6
-        a54,54 0 1,0 0,108
-        a54,54 0 1,0 0,-108
+    <!-- ===== حلقه‌ی صورتی تیره‌تر داخلی (برای عمق، بدون سفیدی) ===== -->
+    <path android:pathData="M60,8
+        a52,52 0 1,0 0,104
+        a52,52 0 1,0 0,-104
         z"
-        android:strokeWidth="2"
-        android:fillColor="#00000000">
-        <aapt:attr name="android:strokeColor">
-            <gradient
-                android:type="linear"
-                android:startX="6" android:startY="6"
-                android:endX="114" android:endY="114">
-                <item android:offset="0" android:color="#FFFFFF"/>
-                <item android:offset="0.5" android:color="#FFF0F6"/>
-                <item android:offset="1" android:color="#FFC8DD"/>
-            </gradient>
-        </aapt:attr>
-    </path>
-
-    <!-- ===== درخشش گوشه‌ی بالا-چپ حلقه (glass) ===== -->
-    <path android:pathData="M24,24 Q40,10 60,8"
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="2.5"
-        android:strokeAlpha="0.7"
-        android:strokeLineCap="round"
-        android:fillColor="#00000000"/>
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:strokeColor="#E88FB0"
+        android:strokeAlpha="0.4" />
 
     <!-- ===== گروه محتوای مرکزی (M + قیچی) ===== -->
     <group
@@ -164,7 +147,7 @@
         android:fillColor="#FFFFFF"
         android:fillAlpha="0.55"/>
 
-    <!-- ===== درخشش نقطه‌ای پایین-راست (کوچک) ===== -->
+    <!-- ===== درخشش نقطه‌ای پایین-راست ===== -->
     <path android:pathData="M96,92
         a1.5,1.5 0 1,0 0,3
         a1.5,1.5 0 1,0 0,-3

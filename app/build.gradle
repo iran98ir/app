@@ -1,7 +1,7 @@
 /* =========================================================
-   app/build.gradle  —  تنظیمات ماژول اپ (Vista2 — MuMu)
+   app/build.gradle  —  تنظیمات ماژول اپ (MU✂️MU)
    مسیر: app/build.gradle
-   نسخه: 1.3.07
+   نسخه: 3.4.07
    ========================================================= */
 
 plugins {
@@ -13,11 +13,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "app.vista2"
+        applicationId "mumu"
         minSdk 23
         targetSdk 35
-        versionCode 1
-        versionName "1.3.07"
+        versionCode 2
+        versionName "3.4.07"
 
         // ===== فقط فارسی =====
         resConfigs "fa", "en"
@@ -84,7 +84,7 @@ android {
         variant.outputs.all {
             def buildType = variant.buildType.name
             def version = variant.versionName
-            outputFileName = "MuMu-${version}-${buildType}.apk"
+            outputFileName = "MUMU-${version}-${buildType}.apk"
         }
     }
 }

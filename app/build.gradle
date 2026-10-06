@@ -1,7 +1,7 @@
 /* =========================================================
    app/build.gradle  —  تنظیمات ماژول اپ (کاردار)
    مسیر: app/build.gradle
-   نسخه: 3.07.11
+   نسخه: 3.07.12
    ========================================================= */
 
 plugins {
@@ -13,11 +13,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "ir.kardar"
+        applicationId "kar.dar"
         minSdk 23
         targetSdk 35
-        versionCode 3
-        versionName "3.07.11"
+        versionCode 4
+        versionName "3.07.12"
 
         // ===== فقط فارسی =====
         resConfigs "fa", "en"

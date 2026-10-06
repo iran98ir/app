@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     ic_launcher_background.xml  —  پس‌زمینه‌ی آیکون اپ
+     ic_launcher_background.xml  —  پس‌زمینه‌ی آیکون (MU✂️MU)
      مسیر: app/src/main/res/drawable/ic_launcher_background.xml
+     نسخه: 3.4.07
      ========================================================= -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- ===== پس‌زمینه‌ی سرمه‌ای ===== -->
-    <path
-        android:fillColor="#0D1B2E"
-        android:pathData="M0,0 L108,0 L108,108 L0,108 Z" />
+    <!-- ===== گرادیانت صورتی روشن لوکس (عمودی نرم) ===== -->
+    <path android:pathData="M0,0 L108,0 L108,108 L0,108 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="0" android:startY="0"
+                android:endX="108" android:endY="108">
+                <item android:offset="0" android:color="#FFD9E8"/>
+                <item android:offset="0.45" android:color="#FFC2D9"/>
+                <item android:offset="1" android:color="#F5A8C5"/>
+            </gradient>
+        </aapt:attr>
+    </path>
 
-    <!-- ===== هاله‌ی طلایی پایین ===== -->
-    <path
-        android:fillColor="#1AC4956A"
-        android:pathData="M0,108 L108,108 L108,54 Q54,90 0,54 Z" />
+    <!-- ===== درخشش سفید نرم بالا-چپ (شیشه‌ای) ===== -->
+    <path android:pathData="M0,0 L108,0 L108,30 Q54,55 0,30 Z"
+        android:fillAlpha="0.35">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="0" android:startY="0"
+                android:endX="0" android:endY="30">
+                <item android:offset="0" android:color="#FFFFFF"/>
+                <item android:offset="1" android:color="#00FFFFFF"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== هاله‌ی صورتی طلایی پایین (depth) ===== -->
+    <path android:pathData="M0,108 L108,108 L108,60 Q54,95 0,60 Z"
+        android:fillAlpha="0.25">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="54" android:centerY="108"
+                android:gradientRadius="70">
+                <item android:offset="0" android:color="#FF8FB8"/>
+                <item android:offset="1" android:color="#00FF8FB8"/>
+            </gradient>
+        </aapt:attr>
+    </path>
 
 </vector>

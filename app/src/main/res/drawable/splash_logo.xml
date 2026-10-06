@@ -1,54 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     splash_logo.xml  —  لوگوی صفحه‌ی Splash
+     splash_logo.xml  —  لوگوی صفحه‌ی Splash (MU✂️MU)
      مسیر: app/src/main/res/drawable/splash_logo.xml
+     نسخه: 3.4.07
      =========================================================
-     📌 طراحی: حرف V طلایی + قاب سرمه‌ای
-     📌 نماد «مشاوره»
+     📌 طراحی هماهنگ با آیکون لانچر جدید
+     📌 صورتی روشن + M سفید + قیچی لوکس
      ========================================================= -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="140dp"
     android:height="140dp"
     android:viewportWidth="120"
     android:viewportHeight="120">
 
-    <!-- ===== دایره‌ی پس‌زمینه سرمه‌ای ===== -->
-    <path
-        android:fillColor="#1B2A4A"
-        android:pathData="M60,4
-            a56,56 0 1,0 0,112
-            a56,56 0 1,0 0,-112
-            z" />
+    <!-- ===== دایره‌ی پس‌زمینه‌ی صورتی روشن (گرادیانت) ===== -->
+    <path android:pathData="M60,4
+        a56,56 0 1,0 0,112
+        a56,56 0 1,0 0,-112
+        z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="4" android:startY="4"
+                android:endX="116" android:endY="116">
+                <item android:offset="0" android:color="#FFD9E8"/>
+                <item android:offset="0.45" android:color="#FFC2D9"/>
+                <item android:offset="1" android:color="#F5A8C5"/>
+            </gradient>
+        </aapt:attr>
+    </path>
 
-    <!-- ===== حلقه‌ی طلایی بیرونی ===== -->
-    <path
-        android:strokeColor="#C4956A"
-        android:strokeWidth="3"
+    <!-- ===== درخشش شیشه‌ای بالا-چپ ===== -->
+    <path android:pathData="M60,4 A56,56 0 0,1 116,60 A56,56 0 0,0 60,4 Z"
+        android:fillAlpha="0.45">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="4" android:startY="4"
+                android:endX="60" android:endY="60">
+                <item android:offset="0" android:color="#FFFFFF"/>
+                <item android:offset="1" android:color="#00FFFFFF"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== هاله‌ی صورتی عمیق پایین ===== -->
+    <path android:pathData="M60,116 A56,56 0 0,1 4,60 A56,56 0 0,0 60,116 Z"
+        android:fillAlpha="0.3">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="60" android:centerY="116"
+                android:gradientRadius="70">
+                <item android:offset="0" android:color="#E87FA8"/>
+                <item android:offset="1" android:color="#00E87FA8"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ===== حلقه‌ی صورتی تیره‌تر داخلی (برای عمق) ===== -->
+    <path android:pathData="M60,10
+        a50,50 0 1,0 0,100
+        a50,50 0 1,0 0,-100
+        z"
+        android:strokeWidth="1.5"
         android:fillColor="#00000000"
-        android:pathData="M60,8
-            a52,52 0 1,0 0,104
-            a52,52 0 1,0 0,-104
-            z" />
+        android:strokeColor="#E88FB0"
+        android:strokeAlpha="0.4" />
 
-    <!-- ===== حرف V طلایی ===== -->
-    <path
-        android:fillColor="#C4956A"
-        android:pathData="M32,30 L60,92 L88,30 L78,30 L60,76 L42,30 Z" />
+    <!-- ===== گروه محتوای مرکزی (M + قیچی) ===== -->
+    <group
+        android:translateX="20"
+        android:translateY="24">
 
-    <!-- ===== خط زیر V ===== -->
-    <path
-        android:strokeColor="#C4956A"
-        android:strokeWidth="2.5"
-        android:strokeLineCap="round"
-        android:fillColor="#00000000"
-        android:pathData="M42,96 L78,96" />
+        <!-- ===== حرف M سفید براق ===== -->
+        <path android:pathData="M14,56 L14,20 L26,20 L34,38 L42,20 L54,20 L54,56 L44,56 L44,34 L36,52 L32,52 L24,34 L24,56 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="14" android:startY="20"
+                    android:endX="54" android:endY="56">
+                    <item android:offset="0" android:color="#FFFFFF"/>
+                    <item android:offset="1" android:color="#FFF0F6"/>
+                </gradient>
+            </aapt:attr>
+        </path>
 
-    <!-- ===== نقطه‌ی طلایی وسط بالای V (نماد مشاوره) ===== -->
-    <path
-        android:fillColor="#C4956A"
-        android:pathData="M60,18
-            a4,4 0 1,0 0,8
-            a4,4 0 1,0 0,-8
-            z" />
+        <!-- ===== هایلایت شیشه‌ای بالای M ===== -->
+        <path android:pathData="M16,22 L52,22 L52,26 L16,26 Z"
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.5"/>
+
+        <!-- ===== حلقه‌ی چپ قیچی ===== -->
+        <path android:pathData="M12,60
+            a4.5,4.5 0 1,0 0,9
+            a4.5,4.5 0 1,0 0,-9
+            z"
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.95"/>
+
+        <!-- ===== حلقه‌ی راست قیچی ===== -->
+        <path android:pathData="M56,60
+            a4.5,4.5 0 1,0 0,9
+            a4.5,4.5 0 1,0 0,-9
+            z"
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.95"/>
+
+        <!-- ===== تیغه‌ی چپ قیچی ===== -->
+        <path android:pathData="M16,64.5 L30,48"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:fillColor="#00000000"/>
+
+        <!-- ===== تیغه‌ی راست قیچی ===== -->
+        <path android:pathData="M56,64.5 L42,48"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:fillColor="#00000000"/>
+
+        <!-- ===== نقطه‌ی اتصال قیچی ===== -->
+        <path android:pathData="M34,49
+            a2,2 0 1,0 0,4
+            a2,2 0 1,0 0,-4
+            z"
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.9"/>
+
+    </group>
+
+    <!-- ===== درخشش ستاره‌ای بالا-راست ===== -->
+    <path android:pathData="M96,22 L98,28 L104,30 L98,32 L96,38 L94,32 L88,30 L94,28 Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9"/>
+
+    <!-- ===== درخشش کوچک پایین-چپ ===== -->
+    <path android:pathData="M20,88 L21.5,92 L25.5,93.5 L21.5,95 L20,99 L18.5,95 L14.5,93.5 L18.5,92 Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7"/>
 
 </vector>

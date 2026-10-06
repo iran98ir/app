@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     activity_splash.xml  —  صفحه‌ی Splash (MU✂️MU)
+     activity_splash.xml  —  صفحه‌ی Splash (کاردار)
      مسیر: app/src/main/res/layout/activity_splash.xml
-     نسخه: 3.4.07
+     نسخه: 3.07.11
      ========================================================= -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,7 +70,7 @@
             android:alpha="0.75"
             android:fontFamily="sans-serif" />
 
-        <!-- ===== برند: مومو ===== -->
+        <!-- ===== برند: کاردار ===== -->
         <TextView
             android:id="@+id/splashBrandTitle"
             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
             android:letterSpacing="0.08"
             android:fontFamily="sans-serif-medium" />
 
-        <!-- ===== شعار: خریدار اصلی مو ===== -->
+        <!-- ===== شعار: همیشه کار دارد ===== -->
         <TextView
             android:id="@+id/splashBrandSlogan"
             android:layout_width="wrap_content"

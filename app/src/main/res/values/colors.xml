@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     colors.xml  —  پالت کاردار (آبی اینستاگرام)
+     colors.xml  —  پالت وامدار (طلایی/سرمه‌ای)
      مسیر: app/src/main/res/values/colors.xml
-     نسخه: 3.07.11
+     نسخه: 7.11.02
      ========================================================= -->
 <resources>
 
-    <!-- ===== رنگ اصلی — آبی اینستاگرام لوکس ===== -->
-    <color name="gold_primary">#0095F6</color>
-    <color name="gold_light">#4DB8FF</color>
-    <color name="gold_dark">#0074C2</color>
+    <!-- ===== رنگ اصلی — طلایی لوکس ===== -->
+    <color name="gold_primary">#C4956A</color>
+    <color name="gold_light">#FFE8C77A</color>
+    <color name="gold_dark">#8A5E34</color>
 
-    <!-- ===== رنگ ثانویه — زرد تابلو راهنمایی و رانندگی ===== -->
-    <color name="navy_primary">#FFCC00</color>
-    <color name="navy_light">#FFD933</color>
-    <color name="navy_dark">#CC9900</color>
+    <!-- ===== رنگ ثانویه — سرمه‌ای ===== -->
+    <color name="navy_primary">#1B2A4A</color>
+    <color name="navy_light">#2A3D5C</color>
+    <color name="navy_dark">#0D1B2E</color>
 
     <!-- ===== پس‌زمینه ===== -->
-    <color name="bg_main">#F0F8FF</color>
+    <color name="bg_main">#F5F0EB</color>
     <color name="bg_surface">#FFFFFF</color>
-    <color name="bg_surface_alt">#E6F3FF</color>
+    <color name="bg_surface_alt">#FAF5EF</color>
 
     <!-- ===== متن ===== -->
-    <color name="text_primary">#1A2B3C</color>
-    <color name="text_secondary">#5C6B7A</color>
-    <color name="text_muted">#8FA0B0</color>
-    <color name="text_inverse">#FFFFFF</color>
+    <color name="text_primary">#1B2A4A</color>
+    <color name="text_secondary">#5A6478</color>
+    <color name="text_muted">#8A92A3</color>
+    <color name="text_inverse">#F5F0EB</color>
 
     <!-- ===== خطوط ===== -->
-    <color name="border_soft">#D9EAF7</color>
-    <color name="border_strong">#B8D4EC</color>
-    <color name="border_gold">#0095F6</color>
+    <color name="border_soft">#E8DFD2</color>
+    <color name="border_strong">#C4956A</color>
+    <color name="border_gold">#C4956A</color>
 
     <!-- ===== بازخورد ===== -->
     <color name="success">#2D7A5F</color>
     <color name="error">#C94A5C</color>
-    <color name="warning">#FFCC00</color>
+    <color name="warning">#D4AF7A</color>
 
     <!-- ===== پس‌زمینه‌ی Splash ===== -->
-    <color name="splash_bg">#0095F6</color>
-    <color name="splash_bg_light">#4DB8FF</color>
+    <color name="splash_bg">#0D1B2E</color>
+    <color name="splash_bg_light">#1B2A4A</color>
 
     <!-- ===== آیکون اپ ===== -->
-    <color name="ic_launcher_background">#FFCC00</color>
-    <color name="ic_launcher_foreground">#1A2B3C</color>
+    <color name="ic_launcher_background">#0D1B2E</color>
+    <color name="ic_launcher_foreground">#C4956A</color>
 
     <!-- ===== شفاف ===== -->
     <color name="transparent">#00000000</color>

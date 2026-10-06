@@ -2,7 +2,7 @@
 <!-- =========================================================
      strings.xml  —  متن‌های اپ (کاردار)
      مسیر: app/src/main/res/values/strings.xml
-     نسخه: 3.07.11
+     نسخه: 3.07.12
      ========================================================= -->
 <resources>
 
@@ -10,7 +10,7 @@
     <string name="app_name">کاردار</string>
 
     <!-- ===== سایت ===== -->
-    <string name="base_url" translatable="false">https://rosha-24.ir/app/app3/</string>
+    <string name="base_url" translatable="false">https://rosha-24.ir/app/app4/</string>
     <string name="allowed_domain" translatable="false">rosha-24.ir</string>
 
     <!-- ===== Splash ===== -->

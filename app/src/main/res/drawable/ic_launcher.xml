@@ -28,7 +28,7 @@
         </aapt:attr>
     </path>
 
-    <!-- ===== درخشش سفید شیشه‌ای بالا-چپ ===== -->
+    <!-- ===== درخشش شیشه‌ای بالا-چپ ===== -->
     <path android:pathData="M60,4 A56,56 0 0,1 116,60 A56,56 0 0,0 60,4 Z"
         android:fillAlpha="0.45">
         <aapt:attr name="android:fillColor">
@@ -56,24 +56,15 @@
         </aapt:attr>
     </path>
 
-    <!-- ===== حلقه‌ی طلایی-سفید براق بیرونی ===== -->
-    <path android:pathData="M60,6
-        a54,54 0 1,0 0,108
-        a54,54 0 1,0 0,-108
+    <!-- ===== حلقه‌ی صورتی تیره‌تر داخلی (برای عمق، بدون سفیدی) ===== -->
+    <path android:pathData="M60,10
+        a50,50 0 1,0 0,100
+        a50,50 0 1,0 0,-100
         z"
-        android:strokeWidth="2.5"
-        android:fillColor="#00000000">
-        <aapt:attr name="android:strokeColor">
-            <gradient
-                android:type="linear"
-                android:startX="6" android:startY="6"
-                android:endX="114" android:endY="114">
-                <item android:offset="0" android:color="#FFFFFF"/>
-                <item android:offset="0.5" android:color="#FFF0F6"/>
-                <item android:offset="1" android:color="#FFC8DD"/>
-            </gradient>
-        </aapt:attr>
-    </path>
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:strokeColor="#E88FB0"
+        android:strokeAlpha="0.4" />
 
     <!-- ===== گروه محتوای مرکزی (M + قیچی) ===== -->
     <group
@@ -148,7 +139,7 @@
         android:fillColor="#FFFFFF"
         android:fillAlpha="0.7"/>
 
-    <!-- ===== درخشش نقطه‌ای بالا-چپ (خیلی کوچک) ===== -->
+    <!-- ===== درخشش نقطه‌ای بالا-چپ ===== -->
     <path android:pathData="M28,20
         a2,2 0 1,0 0,4
         a2,2 0 1,0 0,-4

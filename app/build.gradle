@@ -1,7 +1,7 @@
 /* =========================================================
-   app/build.gradle  —  تنظیمات ماژول اپ (MU✂️MU)
+   app/build.gradle  —  تنظیمات ماژول اپ (کاردار)
    مسیر: app/build.gradle
-   نسخه: 3.4.07
+   نسخه: 3.07.11
    ========================================================= */
 
 plugins {
@@ -13,11 +13,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "app.mumu"
+        applicationId "ir.kardar"
         minSdk 23
         targetSdk 35
-        versionCode 2
-        versionName "3.4.07"
+        versionCode 3
+        versionName "3.07.11"
 
         // ===== فقط فارسی =====
         resConfigs "fa", "en"
@@ -84,7 +84,7 @@ android {
         variant.outputs.all {
             def buildType = variant.buildType.name
             def version = variant.versionName
-            outputFileName = "MUMU-${version}-${buildType}.apk"
+            outputFileName = "kardar-${version}-${buildType}.apk"
         }
     }
 }

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>MD Saz</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Tahoma, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.7;
+  }
+  .container { max-width: 950px; margin: 0 auto; }
+  h1 { color: #38bdf8; font-size: 22px; margin: 0 0 5px 0; }
+  .sub { color: #94a3b8; font-size: 13px; margin-bottom: 22px; }
+
+  .repo-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .repo-box input {
+    flex: 1;
+    min-width: 200px;
+    background: #1e293b;
+    border: 1px solid #475569;
+    color: #e2e8f0;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    direction: ltr;
+    text-align: left;
+  }
+  .repo-box input:focus { outline: none; border-color: #38bdf8; }
+
+  button {
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  button:hover { background: #0284c7; }
+  button:disabled { background: #475569; cursor: not-allowed; }
+  button.secondary { background: #475569; padding: 7px 14px; font-size: 12.5px; }
+  button.secondary:hover { background: #64748b; }
+  button.download {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    margin-top: 15px;
+    background: #16a34a;
+  }
+  button.download:hover { background: #15803d; }
+
+  .loading {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+  .loading .spinner {
+    display: inline-block;
+    width: 24px; height: 24px;
+    border: 3px solid #334155;
+    border-top-color: #38bdf8;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 10px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error {
+    background: #7f1d1d;
+    color: #fecaca;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .stats strong { color: #38bdf8; }
+
+  .toolbar { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+
+  .file-list {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    max-height: 420px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  .file-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .file-item:hover { background: #334155; }
+  .file-item input[type="checkbox"] {
+    margin-left: 10px;
+    width: 16px; height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .file-item .path {
+    flex: 1;
+    color: #cbd5e1;
+    word-break: break-all;
+    direction: ltr;
+    text-align: left;
+  }
+  .file-item .size {
+    color: #64748b;
+    font-size: 11px;
+    white-space: nowrap;
+    margin-right: 8px;
+  }
+
+  .hidden { display: none; }
+
+  .result {
+    background: #064e3b;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  .result h3 { margin: 0 0 10px 0; color: #6ee7b7; font-size: 15px; }
+  .result ul { list-style: none; padding: 0; margin: 0; }
+  .result li {
+    padding: 8px 0;
+    border-bottom: 1px solid #065f46;
+    font-size: 13px;
+  }
+  .result li:last-child { border-bottom: none; }
+  .result a { color: #6ee7b7; text-decoration: none; }
+  .result a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📝 MD Saz</h1>
+  <p class="sub">اسم ریپو گیت‌هابت رو بده، فایل‌ها رو انتخاب کن، MD تکه‌تکه دانلود کن.</p>
+
+  <div class="repo-box">
+    <input type="text" id="repoInput" placeholder="owner/repo — مثلا iran98ir/app-vista1" value="iran98ir/app-vista1">
+    <button id="loadBtn">📥 بارگذاری فایل‌ها</button>
+  </div>
+
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <div>در حال خوندن فایل‌ها از گیت‌هاب...</div>
+  </div>
+
+  <div id="error" class="error hidden"></div>
+
+  <div id="stats" class="stats hidden">
+    <span>📁 فایل: <strong id="statFiles">0</strong></span>
+    <span>📏 کل: <strong id="statSize">0</strong></span>
+    <span>✅ انتخابی: <strong id="statSelected">0</strong></span>
+  </div>
+
+  <div id="toolbar" class="toolbar hidden">
+    <button class="secondary" id="selectAll">انتخاب همه</button>
+    <button class="secondary" id="selectNone">حذف همه</button>
+    <button class="secondary" id="selectCode">فقط کد</button>
+    <button class="secondary" id="selectSmall">فقط فایل‌های کوچک</button>
+  </div>
+
+  <div id="fileList" class="file-list hidden"></div>
+
+  <button id="downloadBtn" class="download hidden">📥 دانلود فایل‌های MD</button>
+
+  <div id="result" class="result hidden">
+    <h3>✅ آماده شد</h3>
+    <ul id="resultList"></ul>
+  </div>
+</div>
+
+<script>
+// ⚙️ حجم هر پارت (کاراکتر) — DeepSeek راحت می‌خونه
+const PART_SIZE = 50000;
+
+const $ = id => document.getElementById(id);
+const repoInput = $('repoInput');
+const loadBtn = $('loadBtn');
+const loading = $('loading');
+const errorBox = $('error');
+const stats = $('stats');
+const toolbar = $('toolbar');
+const fileList = $('fileList');
+const downloadBtn = $('downloadBtn');
+const result = $('result');
+const resultList = $('resultList');
+
+let allFiles = [];
+
+const IGNORE_PATHS = ['node_modules', '.git/', 'dist/', 'build/', '.next/', 'vendor/', '__pycache__', '.gradle/', 'gradle/wrapper/'];
+const IGNORE_FILES = ['package-lock.json', 'yarn.lock', '.DS_Store'];
+const TEXT_EXTS = ['html','htm','css','js','jsx','ts','tsx','json','md','txt','py','php','vue','svelte','xml','yml','yaml','svg','env','gitignore','sh','sql','rb','go','rs','java','c','cpp','h','hpp','ini','conf','toml','gradle','properties','pro','kt','kts'];
+
+loadBtn.onclick = loadRepo;
+
+async function loadRepo() {
+  const repo = repoInput.value.trim();
+  if (!repo || !repo.includes('/')) {
+    showError('فرمت درست: owner/repo');
+    return;
+  }
+
+  errorBox.classList.add('hidden');
+  fileList.classList.add('hidden');
+  stats.classList.add('hidden');
+  toolbar.classList.add('hidden');
+  downloadBtn.classList.add('hidden');
+  result.classList.add('hidden');
+  loading.classList.remove('hidden');
+  loadBtn.disabled = true;
+
+  try {
+    // گرفتن شاخه پیش‌فرض
+    const repoRes = await fetch(`https://api.github.com/repos/${repo}`);
+    if (!repoRes.ok) throw new Error('ریپو پیدا نشد یا دسترسی نداره');
+    const repoData = await repoRes.json();
+    const branch = repoData.default_branch || 'main';
+
+    // گرفتن درخت فایل‌ها
+    const treeRes = await fetch(`https://api.github.com/repos/${repo}/git/trees/${branch}?recursive=1`);
+    if (!treeRes.ok) throw new Error('نتونستم لیست فایل‌ها رو بگیرم');
+    const treeData = await treeRes.json();
+
+    if (!treeData.tree) throw new Error('ساختار ریپو خالیه');
+
+    const files = treeData.tree.filter(item => {
+      if (item.type !== 'blob') return false;
+      const p = item.path;
+      if (IGNORE_PATHS.some(ig => p.includes(ig))) return false;
+      if (IGNORE_FILES.includes(p.split('/').pop())) return false;
+      const ext = p.split('.').pop().toLowerCase();
+      const name = p.split('/').pop();
+      if (!TEXT_EXTS.includes(ext) && !name.startsWith('.')) return false;
+      return true;
+    });
+
+    if (files.length === 0) throw new Error('فایل متنی پیدا نشد');
+
+    // گرفتن محتوای هر فایل به موازات (با محدودیت)
+    allFiles = [];
+    const CONCURRENCY = 8;
+    let idx = 0;
+
+    async function worker() {
+      while (idx < files.length) {
+        const myIdx = idx++;
+        const f = files[myIdx];
+        try {
+          const r = await fetch(`https://raw.githubusercontent.com/${repo}/${branch}/${encodeURIComponent(f.path)}`);
+          if (!r.ok) return;
+          const content = await r.text();
+          allFiles.push({
+            path: f.path,
+            size: content.length,
+            selected: true,
+            content
+          });
+        } catch (e) {}
+      }
+    }
+
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    allFiles.sort((a, b) => a.path.localeCompare(b.path));
+
+    loading.classList.add('hidden');
+    renderList();
+
+  } catch (e) {
+    loading.classList.add('hidden');
+    showError(e.message);
+  } finally {
+    loadBtn.disabled = false;
+  }
+}
+
+function showError(msg) {
+  errorBox.textContent = '❌ ' + msg;
+  errorBox.classList.remove('hidden');
+}
+
+function renderList() {
+  fileList.innerHTML = '';
+  allFiles.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.className = 'file-item';
+    div.innerHTML = `
+      <input type="checkbox" ${f.selected ? 'checked' : ''}>
+      <span class="path">${f.path}</span>
+      <span class="size">${formatSize(f.size)}</span>
+    `;
+    const cb = div.querySelector('input');
+    cb.addEventListener('change', e => {
+      allFiles[i].selected = e.target.checked;
+      updateStats();
+    });
+    div.addEventListener('click', e => {
+      if (e.target !== cb) {
+        cb.checked = !cb.checked;
+        allFiles[i].selected = cb.checked;
+        updateStats();
+      }
+    });
+    fileList.appendChild(div);
+  });
+  fileList.classList.remove('hidden');
+  toolbar.classList.remove('hidden');
+  stats.classList.remove('hidden');
+  downloadBtn.classList.remove('hidden');
+  updateStats();
+}
+
+function updateStats() {
+  const sel = allFiles.filter(f => f.selected);
+  $('statFiles').textContent = allFiles.length;
+  $('statSize').textContent = formatSize(allFiles.reduce((s, f) => s + f.size, 0));
+  $('statSelected').textContent = sel.length + ' (' + formatSize(sel.reduce((s, f) => s + f.size, 0)) + ')';
+}
+
+function formatSize(n) {
+  if (n < 1024) return n + ' B';
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+  return (n / 1024 / 1024).toFixed(2) + ' MB';
+}
+
+$('selectAll').onclick = () => { allFiles.forEach(f => f.selected = true); renderList(); };
+$('selectNone').onclick = () => { allFiles.forEach(f => f.selected = false); renderList(); };
+$('selectCode').onclick = () => {
+  const codeExts = ['java','kt','kts','gradle','properties','xml','js','ts','py','php','rb','go','rs','c','cpp','h'];
+  allFiles.forEach(f => {
+    const ext = f.path.split('.').pop().toLowerCase();
+    f.selected = codeExts.includes(ext);
+  });
+  renderList();
+};
+$('selectSmall').onclick = () => {
+  allFiles.forEach(f => f.selected = f.size < 10000);
+  renderList();
+};
+
+downloadBtn.onclick = () => {
+  const selected = allFiles.filter(f => f.selected);
+  if (selected.length === 0) { alert('هیچ فایلی انتخاب نشده!'); return; }
+
+  const parts = [];
+  let buf = '';
+  let bufFiles = [];
+  const HEADER_RESERVE = 600;
+
+  function flush() {
+    if (buf.length === 0) return;
+    parts.push({ files: [...bufFiles], body: buf });
+    buf = '';
+    bufFiles = [];
+  }
+
+  for (const f of selected) {
+    const ext = f.path.split('.').pop().toLowerCase() || 'text';
+    const block = `## 📄 \`${f.path}\`\n\n\`\`\`${ext}\n${f.content}\n\`\`\`\n\n---\n\n`;
+    const available = PART_SIZE - HEADER_RESERVE;
+
+    // فایل بزرگ — تکه‌تکه
+    if (block.length > available) {
+      flush();
+      const lines = block.split('\n');
+      let piece = '';
+      let pieceNum = 1;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i] + '\n';
+        if (piece.length + line.length > available && piece.length > 0) {
+          const title = pieceNum === 1
+            ? `## 📄 \`${f.path}\`\n\n`
+            : `## 📄 \`${f.path}\` — ادامه (بخش ${pieceNum})\n\n`;
+          parts.push({ files: [`${f.path} (بخش ${pieceNum})`], body: title + piece + '\n' });
+          piece = '';
+          pieceNum++;
+        }
+        piece += line;
+      }
+      if (piece.length > 0) {
+        const title = pieceNum === 1
+          ? `## 📄 \`${f.path}\`\n\n`
+          : `## 📄 \`${f.path}\` — ادامه (بخش ${pieceNum})\n\n`;
+        parts.push({ files: [`${f.path} (بخش ${pieceNum})`], body: title + piece + '\n' });
+      }
+      continue;
+    }
+
+    // فایل معمولی
+    if (buf.length + block.length + HEADER_RESERVE > PART_SIZE && buf.length > 0) {
+      flush();
+    }
+    buf += block;
+    bufFiles.push(f.path);
+  }
+  flush();
+
+  // دانلود
+  resultList.innerHTML = '';
+  parts.forEach((part, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const header = `# 📁 مستندات پروژه — پارت ${num}\n\n**تعداد بخش این پارت:** ${part.files.length}\n\n**لیست:**\n${part.files.map(p => '- `' + p + '`').join('\n')}\n\n---\n\n`;
+    const fullContent = header + part.body;
+    const filename = `project-part-${num}.md`;
+    const blob = new Blob([fullContent], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="${url}" download="${filename}">⬇️ ${filename} — ${formatSize(fullContent.length)} — ${part.files.length} بخش</a>`;
+    resultList.appendChild(li);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  result.classList.remove('hidden');
+  result.scrollIntoView({ behavior: 'smooth' });
+};
+
+// بارگذاری خودکار وقتی باز شد
+window.addEventListener('load', loadRepo);
+</script>
+</body>
+  </html>

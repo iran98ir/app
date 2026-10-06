@@ -1,7 +1,7 @@
 /* =========================================================
-   MainActivity.java  —  صفحه‌ی اصلی (WebView) — MU✂️MU
+   MainActivity.java  —  صفحه‌ی اصلی (WebView) — کاردار
    مسیر: app/src/main/java/app/vista/MainActivity.java
-   نسخه: 3.4.07
+   نسخه: 3.07.11
    ========================================================= */
 
 package app.vista;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     // ====================================================
     // 🔴 URL سایت
     // ====================================================
-    private static final String BASE_URL = "https://rosha-24.ir/app/app2/";
+    private static final String BASE_URL = "https://rosha-24.ir/app/app3/";
     private static final String BASE_DOMAIN = "rosha-24.ir";
 
     private WebView webView;
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setTextZoom(100);
-        settings.setUserAgentString(settings.getUserAgentString() + " MuMuApp/3.4.07");
+        settings.setUserAgentString(settings.getUserAgentString() + " KardarApp/3.07.11");
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
         settings.setAllowFileAccessFromFileURLs(false);
@@ -402,4 +402,4 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-    }
+                                 }

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =========================================================
-     strings.xml  —  متن‌های اپ (MU✂️MU)
+     strings.xml  —  متن‌های اپ (کاردار)
      مسیر: app/src/main/res/values/strings.xml
-     نسخه: 3.4.07
+     نسخه: 3.07.11
      ========================================================= -->
 <resources>
 
     <!-- ===== نام اپ ===== -->
-    <string name="app_name">MU✂️MU</string>
+    <string name="app_name">کاردار</string>
 
     <!-- ===== سایت ===== -->
-    <string name="base_url" translatable="false">https://rosha-24.ir/app/app2/</string>
+    <string name="base_url" translatable="false">https://rosha-24.ir/app/app3/</string>
     <string name="allowed_domain" translatable="false">rosha-24.ir</string>
 
     <!-- ===== Splash ===== -->
     <string name="splash_loading">در حال آماده‌سازی…</string>
-    <string name="splash_welcome">به مو مو خوش آمدید</string>
-    <string name="splash_brand_title">مومو</string>
-    <string name="splash_brand_slogan">خریدار اصلی مو</string>
+    <string name="splash_welcome">به کاردار خوش آمدید</string>
+    <string name="splash_brand_title">کاردار</string>
+    <string name="splash_brand_slogan">همیشه کار دارد</string>
 
     <!-- ===== خطاها ===== -->
     <string name="error_no_internet">اتصال اینترنت برقرار نیست</string>
